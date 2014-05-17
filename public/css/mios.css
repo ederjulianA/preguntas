@@ -1,4 +1,56 @@
 *{
-	font-family: 'Open Sans', sans-serif, Georgia, Verdana, Arial;
+	font-family: 'Open Sans', sans-serif, Georgia, Verdana, Arial !important;
 	font-size: 16px;
+}
+
+
+.form-container{
+	margin:  10px auto;
+	width: 80%;
+}
+
+.form-container h2 {
+	font-size: 25px;
+	font-weight: bold;
+	text-align: center;
+}
+
+form.form-login {
+	margin: 5% auto;
+	width: 60%;
+}
+form.form-login div{
+	margin: 10px auto;
+	width: 100%;
+}
+
+form.form-login input[type="submit"]{
+	box-shadow: 2px 2px 2px rgba(0,0,0, .5);
+	margin: 0 auto !important;
+	width: 200px;
+}
+
+form.form-login div label, form.form-login div input {
+	display: inline-block;
+	vertical-align: middle;
+}
+
+form.form-login div label {
+	width: 35%;
+}
+
+form.form-login div input {
+	width: 60%;
+}
+
+input[type="text"], input[type="email"], input[type="password"]{
+	border-radius: 5px;
+	padding: 10px;
+}
+
+.mensaje-global{
+	position: absolute;
+	left: 50%;
+	top: -10%;
+	width: 500px;
 }
