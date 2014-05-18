@@ -6,12 +6,50 @@ class HomeController extends BaseController {
 
 	public function getIndex()
 	{
-		return View::make('index');
+		if(!Auth::check())
+		{
+			return Redirect::to('/login');
+		}
+		$user_id = Auth::user()->id;
+		$users = User::where('id','!=', $user_id)->get();
+		$roles = Roles::all();
+		return View::make('index')->with('users',$users)->with('roles',$roles);
 	}
 
 	public function getLogin()
 	{
 		return View::make('login');
+	}
+
+	public function postCrearUsuario()
+	{
+		$validator = Validator::make(Input::all(),array(
+
+					'email' => 'required|email',
+					'password' => 'required'
+				)
+
+			);
+
+		if($validator->passes()){
+
+			$user = new User;
+			$user->username = Input::get('username');
+			$user->email = Input::get('email');
+			$user->password		=	Hash::make(Input::get('password'));
+			$user->password_temp = "";
+			$user->code = "";
+			$user->active = 1;
+			$user->tipo_user = Input::get('tipo_user');
+
+			if($user->save()){
+				return Redirect::to('/');
+			}
+
+		}else{
+			die("ERROR EN LA CREACION DEL USUARIO");
+
+		}
 	}
 
 	public function postLogin()
@@ -44,6 +82,11 @@ class HomeController extends BaseController {
 		}else{
 			return Redirect::to('/login')->with('message-alert','Errores en el formulario');
 		}
+	}
+
+	public function cerrarSesion() {
+		Auth::logout();
+		return Redirect::to('/login')->with('message-alert','Has Cerrado Sesion');
 	}
 
 }

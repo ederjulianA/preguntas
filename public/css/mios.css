@@ -47,10 +47,21 @@ input[type="text"], input[type="email"], input[type="password"]{
 	border-radius: 5px;
 	padding: 10px;
 }
+.container-admin{
+	width: 100%;
+}
+.container-admin div {
+	display: inline-block;
+	vertical-align: top;
+}
+.container-admin div.usuarios{
+	width: 60%;
+}
+.container-admin div.editar-usuarios{
+	width: 30%;
+}
 
 .mensaje-global{
-	position: absolute;
-	left: 50%;
-	top: -10%;
+	max-width: 100%;
 	width: 500px;
 }

@@ -18,9 +18,7 @@
 
 
 <nav class="navbar navbar-default" role="navigation">
-@if(Session::has('message-alert'))
-						<p class="alert alert-danger mensaje-global" style="top:20%;"> {{Session::get('message-alert')}}</p>
-				@endif
+
   <div class="container-fluid">
 
   		@if(Auth::check())
@@ -62,13 +60,13 @@
 	      <ul class="nav navbar-nav navbar-right">
 	        <li><a href="#">Link</a></li>
 	        <li class="dropdown">
-	          <a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown <b class="caret"></b></a>
+	          <a href="#" class="dropdown-toggle" data-toggle="dropdown">{{Auth::user()->username}} <b class="caret"></b></a>
 	          <ul class="dropdown-menu">
 	            <li><a href="#">Action</a></li>
 	            <li><a href="#">Another action</a></li>
 	            <li><a href="#">Something else here</a></li>
 	            <li class="divider"></li>
-	            <li><a href="#">Separated link</a></li>
+	            <li><a href="/cerrar-sesion">Cerrar sesion</a></li>
 	          </ul>
 	        </li>
 	      </ul>
@@ -104,10 +102,20 @@
 
 
   </div><!-- /.container-fluid -->
+  @if(Session::has('message-alert'))
+						<p class="alert alert-danger mensaje-global" style="top:20%;"> {{Session::get('message-alert')}}</p>
+				@endif
 </nav>
 
+<div class="container">
+	<div class="row">
+			@yield('content')
+	</div>
+	
+</div>
 
-@yield('content')
+
+
 
 
 
