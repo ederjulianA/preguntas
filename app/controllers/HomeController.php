@@ -21,6 +21,28 @@ class HomeController extends BaseController {
 		return View::make('login');
 	}
 
+	public function postActualizarUsuario()
+	{
+		$user_id = Input::get('id_user');
+
+		$user = User::where('id','=',$user_id)->first();
+		if($user->count())
+		{
+			$user->username = Input::get('username');
+			$user->email = Input::get('email');
+			$user->tipo_user = Input::get('tipo_user');
+			$user->active = Input::get('estado_user');
+
+			if($user->save()){
+				return Redirect::to('/')->with('message-alert','Usuario Actualizaro Correctamente');
+			}else{
+				return Redirect::to('/')->with('message-alert','Hubo un error al actualizar el usuario');
+			}	
+		}
+
+		return Redirect::to('/')->with('message-alert','Error al actualizar el usuario');
+	}
+
 	public function postCrearUsuario()
 	{
 		$validator = Validator::make(Input::all(),array(

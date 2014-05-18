@@ -30,6 +30,13 @@ Route::post('/postNuevoUsuario', array(
 		'uses' => 'HomeController@postCrearUsuario'
 	));
 
+
+/* RUTA PROCESAR LA ACTUALIZACION DE UN USUARIO */
+Route::post('/postActualizarUser', array(
+		'as' => 'postActualizarUser',
+		'uses' => 'HomeController@postActualizarUsuario'
+	));
+
 /* RUTA PROCESAR LOGIN  */
 Route::post('/postLogin', array(
 		'as' => 'postLogin',
