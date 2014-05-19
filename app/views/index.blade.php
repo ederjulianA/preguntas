@@ -7,7 +7,7 @@
 @section('content')
 	<h1>Bienvenido al administrador de preguntas y respuestas</h1>
 	<div class="container-admin">
-		<div class="col-md-8">
+		<div class="col-md-12">
 			<h2>Usuarios</h2>
 			<a href="#" class="btn btn-success btn-lg" data-toggle="modal" data-target="#myModal">Nuevo Usuario</a>
 
@@ -22,7 +22,7 @@
 			  </tr>
 			  @foreach($users as $user)
 			  		<tr>
-			  			<td> @if($user->tipo_user == 1){{HTML::image('img/admin.jpg', 'preguntas', array('width'=>'40px', 'height'=>'40px'))}} @endif {{$user->id}}</td>
+			  			<td> @if($user->tipo_user == 1){{HTML::image('img/admin.jpg', 'preguntas', array('width'=>'30px', 'height'=>'30px'))}} @endif {{$user->id}}</td>
 			  			<td>{{$user->username}}</td>
 			  			<td>{{$user->email}}</td>
 			  			<td>{{ Rol::usuarioRol($user->tipo_user)}}</td>
@@ -36,14 +36,38 @@
 			
 		</div>
 
-		<div class="col-md-4">
-			<h2>Editar</h2>
+		<div class="row">
+				<div class="col-md-4">
+					<h2>Roles</h2><a href="#" class="btn btn-info" data-toggle="modal" data-target="#rol">Nuevo Rol</a>
+					<table class="table table-bordered">
+					  <tr>
+					  	<th>id</th>
+					  	<th>Rol</th>
+					  </tr>
+
+					  @foreach($roles as $rol)
+					  	<tr>
+					  		<td>{{$rol->id}}</td>
+					  		<td>{{$rol->rol}}</td>
+					  	</tr>
+
+					  @endforeach
+					</table>
+
+			
+				</div>
 			
 		</div>
+
+		
+
+		
 	</div>
 
 
-	    <!-- Modal -->
+
+
+	    <!-- Modal para crear nuevo usuario -->
 <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
 		  <div class="modal-dialog">
 		    <div class="modal-content">
@@ -81,15 +105,50 @@
 						  
 						  <button type="submit" class="btn btn-primary">Crear usuario</button>
 						  {{ Form::token()}}
-		</form>
-		      </div>
-		      <div class="modal-footer">
-		        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-		        
-		      </div>
-		    </div>
-		  </div>
+				</form>
+				      </div>
+				      <div class="modal-footer">
+				        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+				        
+				      </div>
+				    </div>
+				  </div>
 </div><!-- FIN DEL MODAL PARA CREAR USUARIO NUEVO-->
+
+
+
+	    <!-- Modal para crear nuevo ROL -->
+<div class="modal fade" id="rol" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+		  <div class="modal-dialog">
+		    <div class="modal-content">
+		      <div class="modal-header">
+		        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+		        <h4 class="modal-title" id="myModalLabel">Crear Nuevo Rol</h4>
+		      </div>
+		      <div class="modal-body">
+		        <form role="form" autocomplete ="off" method="post" action="/postNuevoRol">
+						  <div class="form-group">
+						    <label for="exampleInputEmail1">Rol:</label>
+						    <input type="text"name="rol" class="form-control" id="" placeholder="Nuevo Rol">
+						  </div>
+
+						  
+						 
+
+						  
+						
+						  
+						  <button type="submit" class="btn btn-primary">Crear Rol</button>
+						  {{ Form::token()}}
+				</form>
+				      </div>
+				      <div class="modal-footer">
+				        <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+				        
+				      </div>
+				    </div>
+				  </div>
+</div><!-- FIN DEL MODAL PARA CREAR ROL NUEVO-->
 
 
 @foreach($users as $user)

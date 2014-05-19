@@ -61,7 +61,38 @@ input[type="text"], input[type="email"], input[type="password"]{
 	width: 30%;
 }
 
+.form-perfil {
+	margin: 0 auto;
+	width: 70%;
+}
+.form-perfil div {
+	margin: 10px auto;
+	width: 100%;
+}
+
+.form-perfil div label, .form-perfil div input {
+	display: inline-block;
+	vertical-align: middle;
+}
+.form-perfil div label {
+	width: 25%;
+}
+.form-perfil div input {
+	width: 70%;
+}
+
+
 .mensaje-global{
 	max-width: 100%;
-	width: 500px;
+	
+}
+
+.perfil-usuario{
+	background-color:;
+	margin: 0 auto;
+	width: 100%;
+}
+
+.perfil-usuario h2 {
+	text-align: center;
 }

@@ -51,12 +51,7 @@
 	          </ul>
 	        </li>
 	      </ul>
-	      <form class="navbar-form navbar-left" role="search">
-	        <div class="form-group">
-	          <input type="text" class="form-control" placeholder="Buscar">
-	        </div>
-	        <button type="submit" class="btn btn-default">Enviar</button>
-	      </form>
+	     
 	      <ul class="nav navbar-nav navbar-right">
 	        <li><a href="#">Link</a></li>
 	        <li class="dropdown">
@@ -109,6 +104,11 @@
 
 <div class="container">
 	<div class="row">
+
+		<div class="label label-success">
+			Estudiante
+			
+		</div>
 			@yield('content')
 	</div>
 	

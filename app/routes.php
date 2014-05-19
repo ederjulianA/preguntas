@@ -24,6 +24,20 @@ Route::get('/login', array(
 	));
 
 
+/* RUTA EDITAR PERFIL  */
+Route::get('/perfil', array(
+		'as' => 'perfil',
+		'uses' => 'UserController@getPerfil'
+	));
+
+
+/* RUTA PROCESAR EDICION DEL  PERFIL  */
+Route::post('/editarPerfil', array(
+		'as' => 'editarPerfil',
+		'uses' => 'UserController@postEditarPerfil'
+	));
+
+
 /* RUTA PROCESAR REGISTRO DE NUEVOS USUARIOS */
 Route::post('/postNuevoUsuario', array(
 		'as' => 'postNuevoUsuario',
@@ -31,10 +45,24 @@ Route::post('/postNuevoUsuario', array(
 	));
 
 
+/* RUTA PROCESAR CAMBIO DE CONTRASEÑA DE USUARIO */
+Route::post('/postCambiarPassword', array(
+		'as' => 'postCambiarPassword',
+		'uses' => 'UserController@postCambiarPassword'
+	));
+
+
 /* RUTA PROCESAR LA ACTUALIZACION DE UN USUARIO */
 Route::post('/postActualizarUser', array(
 		'as' => 'postActualizarUser',
 		'uses' => 'HomeController@postActualizarUsuario'
+	));
+
+
+/* RUTA PROCESAR NUEVO ROL */
+Route::post('/postNuevoRol', array(
+		'as' => 'postNuevoRol',
+		'uses' => 'RolController@postNuevoRol'
 	));
 
 /* RUTA PROCESAR LOGIN  */

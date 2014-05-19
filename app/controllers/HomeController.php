@@ -6,9 +6,19 @@ class HomeController extends BaseController {
 
 	public function getIndex()
 	{
+
+
 		if(!Auth::check())
 		{
 			return Redirect::to('/login');
+		}
+
+		if(Auth::user()->tipo_user == 2){
+			return View::make('profesor.index');
+		}
+
+		if(Auth::user()->tipo_user == 3){
+			return View::make('estudiante.index');
 		}
 		$user_id = Auth::user()->id;
 		$users = User::where('id','!=', $user_id)->get();
