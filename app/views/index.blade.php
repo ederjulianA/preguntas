@@ -56,6 +56,10 @@
 
 			
 				</div>
+				<div class="col-md-8">
+					<h2>Cursos</h2>
+					
+				</div>
 			
 		</div>
 
