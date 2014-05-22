@@ -51,17 +51,63 @@ class UserController extends BaseController {
 
 		$user = User::find(Auth::user()->id);
 	
+		$test = new Test();
+		$test->course = Input::get('course');
+		$test->challenge = Input::get('challenge');
+	
 		$question = new Question();
 		$question->user = $user->id;
 		$question->content = Input::get('question');
-		$question->course = Input::get('course');
 		
-		if($question->save()) {
+		$auxiliary = Test::where('course', '=', $test->course)
+						->where('challenge', '=', $test->challenge)
+						->first();
 		
-			return Redirect::to('/#');
+		if(!empty($auxiliary->id)) {
+		
+			$question->test = $auxiliary->id;
+		
+			if($question->save()) {
+			
+				$answers = Input::get('answer');
+				$answer_right = Input::get('answer_right');
+		
+				foreach($answers as $key => $answer_content) {
+				
+					$answer = new Answer();
+					$answer->question = $question->id;
+					$answer->content = $answer_content;
+					$answer->right = $answer_right[$key];
+					
+					if($answer->save()) {}
+				}
+				
+				return Redirect::to('../#')->with('message-alert','Pregunta creada satisfactoriamente.');
+			} else {}
 		} else {
+			
+			if($test->save()) {
 		
-			return Redirect::to('/#');
+				$question->test = $test->id;
+		
+				if($question->save()) {
+				
+					$answers = Input::get('answer');
+					$answer_right = Input::get('answer_right');
+			
+					foreach($answers as $key => $answer_content) {
+					
+						$answer = new Answer();
+						$answer->question = $question->id;
+						$answer->content = $answer_content;
+						$answer->right = $answer_right[$key];
+						
+						if($answer->save()) {}
+					}
+					
+					return Redirect::to('../#')->with('message-alert','Pregunta creada satisfactoriamente.');
+				} else {}
+			}
 		}
 	}
 	

@@ -41,49 +41,52 @@
 			
 				var answer_container = document.getElementById('answer_container');
 				
-				answer_container.innerHTML += "<input name = 'answer[]' id = 'answer[]' type = 'text' placeholder = 'Digita la pregunta'/> <input name = 'answer_value[]' type = 'text' placeholder = 'Valor de la pregunta'/>";
+				var html = "<input name = 'answer[]' type = 'text' placeholder = 'Digita la respuesta' class = 'Full-Input' required/><label class = 'My-Label'>Respuesta correcta:</label><select name = 'answer_right[]' class = 'Full-Input' required> <option value = '1'>Sí</option><option value = '2'>No</option></select><hr/>";
+				
+				answer_container.innerHTML += html;
 				
 				return false;
 			}
 		</script>
-		<div class="row">
-				<div class="col-md-4">
-					<h1>
+		<div class="row My-Row">
+				<div class = 'Questions-Container'>
+					<h1 class = 'My-Title'>
 						Creación de preguntas
 					</h1>
 					<form action = 'guardarpregunta' method = 'POST'>
-						<label>
+						<label class = 'My-Label'>
 							Curso:
 						</label>
-						<select name = 'course' id = 'course'>
+						<select name = 'course' id = 'course' class = 'Full-Input' required>
 							@foreach($courses as $course)
 								<option value="{{$course->id}}">{{$course->name}} </option>
 							@endforeach
 						</select>
-						<label>
+						<label class = 'My-Label'>
 							Competencia:
 						</label>
-						<select name = 'course' id = 'course'>
+						<select name = 'challenge' id = 'challenge' class = 'Full-Input' required>
 							@foreach($challenges as $challenge)
 								<option value="{{$challenge->id}}">{{$challenge->name}} </option>
 							@endforeach
 						</select>
-						<label>
+						<label class = 'My-Label'>
 							Pregunta:
 						</label>
-						<input  id = 'question' name = 'question' type = 'text'/>
-						<label>
+						<input  id = 'question' name = 'question' type = 'text' class = 'Full-Input' required/>
+						<p class = 'My-P'>
+							A continuación podrá asignar respuesta a cada pregunta indicando si ésta es o no la correcta. Una pregunta puede tener más de una respuesta verdadera.
+						</p>
+						<h1 class = 'My-Title-2'>
 							Respuestas:
-						</label>
-						<div id = 'answer_container'>
+						</h1>
+						<div id = 'answer_container' class = 'Answer-Container'>
 						</div>
-						<input type = 'submit' value = 'Agregar respuesta' onclick = 'return addAnswer();'/>
-						<input type = 'submit' value = 'Guardar pregunta'/>
+						<div class = 'Action-Container'>
+							<input type = 'submit' value = 'Agregar respuesta' onclick = 'return addAnswer();' class = 'btn btn-info'/>
+							<input type = 'submit' value = 'Guardar pregunta' class = 'btn btn btn-primary'/>
+						</div>
 					</form>
-				</div>
-				<div class="col-md-8">
-					<h2>Cursos</h2>
-					
 				</div>
 			
 		</div>

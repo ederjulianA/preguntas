@@ -18,7 +18,6 @@ CREATE TABLE `answer` (
   `question` int(11) NOT NULL,
   `content` varchar(245) COLLATE utf8_unicode_ci NOT NULL,
   `right` int(11) NOT NULL,
-  `value` double NOT NULL,
   `created_at` datetime NOT NULL,
   `updated_at` datetime NOT NULL,
   PRIMARY KEY (`id`)
@@ -50,12 +49,12 @@ CREATE TABLE `course` (
   `created_at` datetime NOT NULL,
   `updated_at` datetime NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 /*Data for the table `course` */
 
-insert  into `course`(`id`,`name`,`created_at`,`updated_at`) values (1,'Inglés','0000-00-00 00:00:00','0000-00-00 00:00:00');
-insert  into `course`(`id`,`name`,`created_at`,`updated_at`) values (2,'Español','0000-00-00 00:00:00','0000-00-00 00:00:00');
+insert  into `course`(`id`,`name`,`created_at`,`updated_at`) values (3,'Español','0000-00-00 00:00:00','0000-00-00 00:00:00');
+insert  into `course`(`id`,`name`,`created_at`,`updated_at`) values (4,'Inglés','0000-00-00 00:00:00','0000-00-00 00:00:00');
 
 /*Table structure for table `question` */
 
@@ -63,17 +62,13 @@ CREATE TABLE `question` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `user` int(11) NOT NULL,
   `content` varchar(245) COLLATE utf8_unicode_ci NOT NULL,
-  `challenge` int(11) NOT NULL DEFAULT '1',
+  `test` int(11) NOT NULL DEFAULT '1',
   `created_at` datetime NOT NULL,
   `updated_at` datetime NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 /*Data for the table `question` */
-
-insert  into `question`(`id`,`user`,`content`,`challenge`,`created_at`,`updated_at`) values (1,2,'',1,'2014-05-21 23:53:26','2014-05-21 23:53:26');
-insert  into `question`(`id`,`user`,`content`,`challenge`,`created_at`,`updated_at`) values (2,2,'¿Qué hace?',1,'2014-05-22 00:24:27','2014-05-22 00:24:27');
-insert  into `question`(`id`,`user`,`content`,`challenge`,`created_at`,`updated_at`) values (3,2,'¿Qué comemos?',2,'2014-05-22 00:24:49','2014-05-22 00:24:49');
 
 /*Table structure for table `rol` */
 
