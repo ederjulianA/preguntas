@@ -88,7 +88,6 @@
 						</div>
 					</form>
 				</div>
-			
 		</div>
 		<div class="row My-Row">
 				<div class = 'Questions-Container'>

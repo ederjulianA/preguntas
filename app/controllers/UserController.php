@@ -125,6 +125,21 @@ class UserController extends BaseController {
 		}
 	}
 	
+	public function postAsignarCurso() {
+	
+		$routine = new Routine();
+		$routine->user = Input::get('user');
+		$routine->course = Input::get('course');
+		
+		if($routine->save()) {
+		
+			return Redirect::to('../#')->with('message-alert','Asignación realizada satisfactoriamente.');
+		} else {
+		
+			return Redirect::to('../#')->with('message-alert','Ha ocurrido un problema, por favor vuelva a intentarlo.');
+		}
+	}
+	
 	public function postEditarPerfil()
 	{
 		$user_id = $_POST['id_user'];

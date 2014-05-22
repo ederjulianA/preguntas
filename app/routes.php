@@ -37,6 +37,11 @@ Route::post('/editarPerfil', array(
 		'uses' => 'UserController@postEditarPerfil'
 	));
 
+Route::post('/asignarcurso', array(
+	'as' => 'asignarcurso',
+	'uses' => 'UserController@postAsignarCurso'
+));
+	
 Route::post('/crearcurso', array(
 	'as' => 'crearcurso',
 	'uses' => 'UserController@postCrearCurso'

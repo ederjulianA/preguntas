@@ -10,7 +10,10 @@ class HomeController extends BaseController {
 		}
 
 		if(Auth::user()->tipo_user == 2){
-			return View::make('profesor.index');
+			$users = User::where('tipo_user', '=', 3)->get();
+			$courses = Course::where('id', '>', 0)->get();
+			
+			return View::make('profesor.index')->with('users', $users)->with('courses', $courses);
 		}
 
 		if(Auth::user()->tipo_user == 3){
