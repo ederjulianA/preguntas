@@ -36,25 +36,50 @@
 			
 		</div>
 
+		<script type = 'text/javascript'>
+			function addAnswer() {
+			
+				var answer_container = document.getElementById('answer_container');
+				
+				answer_container.innerHTML += "<input name = 'answer[]' id = 'answer[]' type = 'text' placeholder = 'Digita la pregunta'/> <input name = 'answer_value[]' type = 'text' placeholder = 'Valor de la pregunta'/>";
+				
+				return false;
+			}
+		</script>
 		<div class="row">
 				<div class="col-md-4">
-					<h2>Roles</h2><a href="#" class="btn btn-info" data-toggle="modal" data-target="#rol">Nuevo Rol</a>
-					<table class="table table-bordered">
-					  <tr>
-					  	<th>id</th>
-					  	<th>Rol</th>
-					  </tr>
-
-					  @foreach($roles as $rol)
-					  	<tr>
-					  		<td>{{$rol->id}}</td>
-					  		<td>{{$rol->rol}}</td>
-					  	</tr>
-
-					  @endforeach
-					</table>
-
-			
+					<h1>
+						Creación de preguntas
+					</h1>
+					<form action = 'guardarpregunta' method = 'POST'>
+						<label>
+							Curso:
+						</label>
+						<select name = 'course' id = 'course'>
+							@foreach($courses as $course)
+								<option value="{{$course->id}}">{{$course->name}} </option>
+							@endforeach
+						</select>
+						<label>
+							Competencia:
+						</label>
+						<select name = 'course' id = 'course'>
+							@foreach($challenges as $challenge)
+								<option value="{{$challenge->id}}">{{$challenge->name}} </option>
+							@endforeach
+						</select>
+						<label>
+							Pregunta:
+						</label>
+						<input  id = 'question' name = 'question' type = 'text'/>
+						<label>
+							Respuestas:
+						</label>
+						<div id = 'answer_container'>
+						</div>
+						<input type = 'submit' value = 'Agregar respuesta' onclick = 'return addAnswer();'/>
+						<input type = 'submit' value = 'Guardar pregunta'/>
+					</form>
 				</div>
 				<div class="col-md-8">
 					<h2>Cursos</h2>
@@ -153,7 +178,6 @@
 				    </div>
 				  </div>
 </div><!-- FIN DEL MODAL PARA CREAR ROL NUEVO-->
-
 
 @foreach($users as $user)
 			  						  		<!-- Modal -->

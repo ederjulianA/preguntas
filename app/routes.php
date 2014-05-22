@@ -37,6 +37,10 @@ Route::post('/editarPerfil', array(
 		'uses' => 'UserController@postEditarPerfil'
 	));
 
+Route::post('/guardarpregunta', array(
+	'as' => 'guardarpregunta',
+	'uses' => 'UserController@postSaveQuestion'
+));
 
 /* RUTA PROCESAR REGISTRO DE NUEVOS USUARIOS */
 Route::post('/postNuevoUsuario', array(

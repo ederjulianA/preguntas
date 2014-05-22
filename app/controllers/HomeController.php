@@ -2,12 +2,8 @@
 
 class HomeController extends BaseController {
 
-	
-
 	public function getIndex()
 	{
-
-
 		if(!Auth::check())
 		{
 			return Redirect::to('/login');
@@ -20,10 +16,15 @@ class HomeController extends BaseController {
 		if(Auth::user()->tipo_user == 3){
 			return View::make('estudiante.index');
 		}
+		
+		$courses = Course::all();
+		
+		$challenges = Challenge::all();
+		
 		$user_id = Auth::user()->id;
 		$users = User::where('id','!=', $user_id)->get();
 		$roles = Roles::all();
-		return View::make('index')->with('users',$users)->with('roles',$roles);
+		return View::make('index')->with('users',$users)->with('roles',$roles)->with('courses', $courses)->with('challenges', $challenges);
 	}
 
 	public function getLogin()

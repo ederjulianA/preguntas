@@ -47,6 +47,24 @@ class UserController extends BaseController {
 
 	}
 
+	public function postSaveQuestion() {
+
+		$user = User::find(Auth::user()->id);
+	
+		$question = new Question();
+		$question->user = $user->id;
+		$question->content = Input::get('question');
+		$question->course = Input::get('course');
+		
+		if($question->save()) {
+		
+			return Redirect::to('/#');
+		} else {
+		
+			return Redirect::to('/#');
+		}
+	}
+	
 	public function postEditarPerfil()
 	{
 		$user_id = $_POST['id_user'];
