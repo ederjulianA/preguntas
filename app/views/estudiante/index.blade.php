@@ -6,5 +6,17 @@ Index Estudiante
 
 @section('content')
 <div class="container">
-	</div>
+		
+		<div class="mis-cursos-container">
+			<h2>Mis Cursos</h2>
+				<ul>
+					@foreach($mycourses as $course)
+						<li><a href="#">{{$course->name}}</a></li>
+
+					@endforeach
+				</ul>
+			
+		</div>
+		
+</div>
 @stop

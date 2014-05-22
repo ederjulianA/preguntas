@@ -17,7 +17,14 @@ class HomeController extends BaseController {
 		}
 
 		if(Auth::user()->tipo_user == 3){
-			return View::make('estudiante.index');
+			$userCourses = Routine::where('user','=',Auth::user()->id)
+			->join('course','routine.course','=','course.id')
+			->select('course.id',
+					'course.name'
+
+				)
+			->get();
+			return View::make('estudiante.index')->with('mycourses',$userCourses);
 		}
 		
 		$courses = Course::all();
