@@ -90,10 +90,23 @@
 				</div>
 			
 		</div>
-
-		
-
-		
+		<div class="row My-Row">
+				<div class = 'Questions-Container'>
+					<h1 class = 'My-Title'>
+						Creación de cursos
+					</h1>
+					<form action = 'crearcurso' method = 'POST'>
+						<label class = 'My-Label'>
+							Nombre del curso:
+						</label>
+						<input  id = 'course' name = 'course' type = 'text' class = 'Full-Input' required/>
+						<div class = 'Action-Container'>
+							<input type = 'submit' value = 'Crear curso' class = 'btn btn btn-primary'/>
+						</div>
+					</form>
+				</div>
+			
+		</div>
 	</div>
 
 

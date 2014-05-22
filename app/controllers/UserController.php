@@ -111,6 +111,20 @@ class UserController extends BaseController {
 		}
 	}
 	
+	public function postCrearCurso() {
+	
+		$course = new Course();
+		$course->name = Input::get('course');
+		
+		if($course->save()) {
+		
+			return Redirect::to('../#')->with('message-alert','Curso creado satisfactoriamente.');
+		} else {
+		
+			return Redirect::to('../#')->with('message-alert','Ha ocurrido un problema, por favor vuelva a intentarlo.');
+		}
+	}
+	
 	public function postEditarPerfil()
 	{
 		$user_id = $_POST['id_user'];
