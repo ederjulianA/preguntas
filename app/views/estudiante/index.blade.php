@@ -6,7 +6,5 @@ Index Estudiante
 
 @section('content')
 <div class="container">
-			INDEX DEL PERFIL ESTUDIANTE
-		
 	</div>
 @stop

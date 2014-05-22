@@ -49,12 +49,13 @@ CREATE TABLE `course` (
   `created_at` datetime NOT NULL,
   `updated_at` datetime NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 /*Data for the table `course` */
 
 insert  into `course`(`id`,`name`,`created_at`,`updated_at`) values (3,'Español','0000-00-00 00:00:00','0000-00-00 00:00:00');
 insert  into `course`(`id`,`name`,`created_at`,`updated_at`) values (4,'Inglés','0000-00-00 00:00:00','0000-00-00 00:00:00');
+insert  into `course`(`id`,`name`,`created_at`,`updated_at`) values (5,'Matemáticas','2014-05-22 08:24:34','2014-05-22 08:24:34');
 
 /*Table structure for table `question` */
 
@@ -85,6 +86,19 @@ CREATE TABLE `rol` (
 insert  into `rol`(`id`,`rol`,`created_at`,`updated_at`) values (1,'Admin','0000-00-00','0000-00-00');
 insert  into `rol`(`id`,`rol`,`created_at`,`updated_at`) values (2,'Profesor','0000-00-00','0000-00-00');
 insert  into `rol`(`id`,`rol`,`created_at`,`updated_at`) values (3,'Estudiante','0000-00-00','0000-00-00');
+
+/*Table structure for table `routine` */
+
+CREATE TABLE `routine` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `user` int(11) NOT NULL,
+  `course` int(11) NOT NULL,
+  `created_at` datetime NOT NULL,
+  `updated_at` datetime NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+/*Data for the table `routine` */
 
 /*Table structure for table `test` */
 
@@ -118,8 +132,8 @@ CREATE TABLE `users` (
 
 /*Data for the table `users` */
 
-insert  into `users`(`id`,`username`,`email`,`password`,`password_temp`,`code`,`active`,`tipo_user`,`remember_token`,`created_at`,`updated_at`) values (2,'admin','admin@admin.com','$2y$10$sqK0Mj3nimaU2MfRGnduSOF3eK643iFLg.dRd8ePw8mIcAyaPbP1m','','',1,1,'kh6OmtGB1GbJZmS5XFRSVKRvVpE2Qjm4skBT8HlJpdp5UxUWmk8AtCUnPHmI','2014-05-18','2014-05-21');
-insert  into `users`(`id`,`username`,`email`,`password`,`password_temp`,`code`,`active`,`tipo_user`,`remember_token`,`created_at`,`updated_at`) values (3,'estudiante 1','estudiante1@gmail.com','$2y$10$ZItwQRQtnpmPNNYoi5Z4BOJODK6Py7C98l.8/ybbwWoy6hVOBghVO','','',1,2,'','2014-05-18','2014-05-18');
+insert  into `users`(`id`,`username`,`email`,`password`,`password_temp`,`code`,`active`,`tipo_user`,`remember_token`,`created_at`,`updated_at`) values (2,'admin','admin@admin.com','$2y$10$sqK0Mj3nimaU2MfRGnduSOF3eK643iFLg.dRd8ePw8mIcAyaPbP1m','','',1,3,'54gFgWYLfqubycusFV9f7AqOPiRXm7gr8FQn3aLrQDFp5SKvQyuP6dQqWpbz','2014-05-18','2014-05-22');
+insert  into `users`(`id`,`username`,`email`,`password`,`password_temp`,`code`,`active`,`tipo_user`,`remember_token`,`created_at`,`updated_at`) values (3,'estudiante 1','estudiante1@gmail.com','$2y$10$ZItwQRQtnpmPNNYoi5Z4BOJODK6Py7C98l.8/ybbwWoy6hVOBghVO','','',1,3,'','2014-05-18','2014-05-18');
 insert  into `users`(`id`,`username`,`email`,`password`,`password_temp`,`code`,`active`,`tipo_user`,`remember_token`,`created_at`,`updated_at`) values (4,'estudiante2','estudiante2@gmail.com','$2y$10$ehe1i6iB8lhEl.UNrtfdn.5YgspxJVafm8BEaKgcW7VZtDZ9cpIBm','','',1,3,'','2014-05-18','2014-05-18');
 insert  into `users`(`id`,`username`,`email`,`password`,`password_temp`,`code`,`active`,`tipo_user`,`remember_token`,`created_at`,`updated_at`) values (5,'profesor 2','profesor2@gmail.com','$2y$10$eOh.piBtkaMVdlCdjBPsLeixuBLmH1MxRjE59Vl7hdmFzTo6Cfsyq','','',1,2,'','2014-05-18','2014-05-18');
 
