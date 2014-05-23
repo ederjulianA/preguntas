@@ -6,4 +6,10 @@ class PruebaController extends BaseController {
 	{
 		return View::make('crearPrueba');
 	}
+
+	public function getPrueba($curso)
+	{
+		
+
+	}
 }

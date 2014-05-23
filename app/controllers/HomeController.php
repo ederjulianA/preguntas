@@ -12,6 +12,9 @@ class HomeController extends BaseController {
 		if(Auth::user()->tipo_user == 2){
 			$users = User::where('tipo_user', '=', 3)->get();
 			$courses = Course::where('id', '>', 0)->get();
+
+			
+
 			
 			return View::make('profesor.index')->with('users', $users)->with('courses', $courses);
 		}
@@ -19,11 +22,14 @@ class HomeController extends BaseController {
 		if(Auth::user()->tipo_user == 3){
 			$userCourses = Routine::where('user','=',Auth::user()->id)
 			->join('course','routine.course','=','course.id')
+
+
 			->select('course.id',
 					'course.name'
 
 				)
 			->get();
+
 			return View::make('estudiante.index')->with('mycourses',$userCourses);
 		}
 		

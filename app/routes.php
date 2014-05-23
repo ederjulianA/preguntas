@@ -31,6 +31,13 @@ Route::get('/perfil', array(
 	));
 
 
+/* RUTA prueba  */
+Route::get('/prueba/{curso}', array(
+		'as' => 'curso',
+		'uses' => 'PruebaController@getPrueba'
+	));
+
+
 /* RUTA PROCESAR EDICION DEL  PERFIL  */
 Route::post('/editarPerfil', array(
 		'as' => 'editarPerfil',
