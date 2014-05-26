@@ -43,7 +43,7 @@
 						<label class = 'My-Label'>
 							Estudiante:
 						</label>
-						<input type = 'text' placeholder = 'Código del estudiante' class = 'Full-Input' required/>
+						<input name = 'user' type = 'text' placeholder = 'Correo del estudiante:' class = 'Full-Input' required/>
 						<label class = 'My-Label'>
 							Curso:
 						</label>
@@ -61,7 +61,7 @@
 							@endforeach
 						</select>
 						<div class = 'Action-Container'>
-							<input name = 'user' type = 'submit' value = 'Buscar' class = 'btn btn btn-primary'/>
+							<input type = 'submit' value = 'Buscar' class = 'btn btn btn-primary'/>
 						</div>
 					</form>
 				</div>

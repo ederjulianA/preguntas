@@ -78,8 +78,8 @@ Index Estudiante
 									</li>
 								@endforeach
 							</ul>
-							<div>
-								<input type = 'submit' value = 'Enviar solución'/>
+							<div class = 'Action-Container'>
+								<input type = 'submit' value = 'Enviar solución' class = 'btn btn btn-primary'/>
 							</div>
 						</form>
 				</div>

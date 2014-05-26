@@ -21,18 +21,9 @@ CREATE TABLE `answer` (
   `created_at` datetime NOT NULL,
   `updated_at` datetime NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 /*Data for the table `answer` */
-
-insert  into `answer`(`id`,`question`,`content`,`right`,`created_at`,`updated_at`) values (1,1,'A',1,'2014-05-26 01:20:34','2014-05-26 01:20:34');
-insert  into `answer`(`id`,`question`,`content`,`right`,`created_at`,`updated_at`) values (2,1,'B',2,'2014-05-26 01:20:34','2014-05-26 01:20:34');
-insert  into `answer`(`id`,`question`,`content`,`right`,`created_at`,`updated_at`) values (3,2,'A',1,'2014-05-26 07:10:37','2014-05-26 07:10:37');
-insert  into `answer`(`id`,`question`,`content`,`right`,`created_at`,`updated_at`) values (4,2,'B',2,'2014-05-26 07:10:37','2014-05-26 07:10:37');
-insert  into `answer`(`id`,`question`,`content`,`right`,`created_at`,`updated_at`) values (5,3,'A',1,'2014-05-26 08:07:03','2014-05-26 08:07:03');
-insert  into `answer`(`id`,`question`,`content`,`right`,`created_at`,`updated_at`) values (6,3,'B',2,'2014-05-26 08:07:03','2014-05-26 08:07:03');
-insert  into `answer`(`id`,`question`,`content`,`right`,`created_at`,`updated_at`) values (7,4,'A',1,'2014-05-26 08:25:12','2014-05-26 08:25:12');
-insert  into `answer`(`id`,`question`,`content`,`right`,`created_at`,`updated_at`) values (8,4,'B',1,'2014-05-26 08:25:12','2014-05-26 08:25:12');
 
 /*Table structure for table `challenge` */
 
@@ -42,13 +33,9 @@ CREATE TABLE `challenge` (
   `created_at` datetime NOT NULL,
   `updated_at` datetime NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 /*Data for the table `challenge` */
-
-insert  into `challenge`(`id`,`name`,`created_at`,`updated_at`) values (1,'Interpretativa','0000-00-00 00:00:00','0000-00-00 00:00:00');
-insert  into `challenge`(`id`,`name`,`created_at`,`updated_at`) values (2,'Argumentativa','0000-00-00 00:00:00','0000-00-00 00:00:00');
-insert  into `challenge`(`id`,`name`,`created_at`,`updated_at`) values (3,'Propositiva','0000-00-00 00:00:00','0000-00-00 00:00:00');
 
 /*Table structure for table `course` */
 
@@ -77,14 +64,9 @@ CREATE TABLE `question` (
   `created_at` datetime NOT NULL,
   `updated_at` datetime NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 /*Data for the table `question` */
-
-insert  into `question`(`id`,`user`,`content`,`test`,`created_at`,`updated_at`) values (1,2,'¿Qué es una variable?',1,'2014-05-26 01:20:34','2014-05-26 01:20:34');
-insert  into `question`(`id`,`user`,`content`,`test`,`created_at`,`updated_at`) values (2,2,'¿Qué es esto?',2,'2014-05-26 07:10:37','2014-05-26 07:10:37');
-insert  into `question`(`id`,`user`,`content`,`test`,`created_at`,`updated_at`) values (3,2,'¿Qué es una vaca?',3,'2014-05-26 08:07:03','2014-05-26 08:07:03');
-insert  into `question`(`id`,`user`,`content`,`test`,`created_at`,`updated_at`) values (4,2,'¿Qué es esto otro?',2,'2014-05-26 08:25:12','2014-05-26 08:25:12');
 
 /*Table structure for table `rol` */
 
@@ -111,13 +93,9 @@ CREATE TABLE `routine` (
   `created_at` datetime NOT NULL,
   `updated_at` datetime NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 /*Data for the table `routine` */
-
-insert  into `routine`(`id`,`user`,`course`,`created_at`,`updated_at`) values (2,4,6,'2014-05-26 01:27:03','2014-05-26 01:27:03');
-insert  into `routine`(`id`,`user`,`course`,`created_at`,`updated_at`) values (3,4,5,'2014-05-26 05:01:17','2014-05-26 05:01:17');
-insert  into `routine`(`id`,`user`,`course`,`created_at`,`updated_at`) values (4,4,4,'2014-05-26 05:01:23','2014-05-26 05:01:23');
 
 /*Table structure for table `solution` */
 
@@ -130,17 +108,9 @@ CREATE TABLE `solution` (
   `created_at` datetime NOT NULL,
   `updated_at` datetime NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 /*Data for the table `solution` */
-
-insert  into `solution`(`id`,`user`,`question`,`answer`,`right`,`created_at`,`updated_at`) values (5,4,3,5,1,'2014-05-26 10:17:36','2014-05-26 10:17:36');
-insert  into `solution`(`id`,`user`,`question`,`answer`,`right`,`created_at`,`updated_at`) values (6,4,3,6,0,'2014-05-26 10:17:41','2014-05-26 10:17:41');
-insert  into `solution`(`id`,`user`,`question`,`answer`,`right`,`created_at`,`updated_at`) values (7,4,3,6,0,'2014-05-26 10:19:19','2014-05-26 10:19:19');
-insert  into `solution`(`id`,`user`,`question`,`answer`,`right`,`created_at`,`updated_at`) values (8,4,3,6,0,'2014-05-26 10:19:47','2014-05-26 10:19:47');
-insert  into `solution`(`id`,`user`,`question`,`answer`,`right`,`created_at`,`updated_at`) values (9,4,2,4,0,'2014-05-26 10:19:59','2014-05-26 10:19:59');
-insert  into `solution`(`id`,`user`,`question`,`answer`,`right`,`created_at`,`updated_at`) values (10,4,4,7,1,'2014-05-26 10:19:59','2014-05-26 10:19:59');
-insert  into `solution`(`id`,`user`,`question`,`answer`,`right`,`created_at`,`updated_at`) values (11,4,1,1,1,'2014-05-26 10:20:19','2014-05-26 10:20:19');
 
 /*Table structure for table `test` */
 
@@ -151,13 +121,9 @@ CREATE TABLE `test` (
   `created_at` datetime NOT NULL,
   `updated_at` datetime NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 /*Data for the table `test` */
-
-insert  into `test`(`id`,`course`,`challenge`,`created_at`,`updated_at`) values (1,6,1,'2014-05-26 01:20:34','2014-05-26 01:20:34');
-insert  into `test`(`id`,`course`,`challenge`,`created_at`,`updated_at`) values (2,6,3,'2014-05-26 07:10:36','2014-05-26 07:10:36');
-insert  into `test`(`id`,`course`,`challenge`,`created_at`,`updated_at`) values (3,5,2,'2014-05-26 08:07:03','2014-05-26 08:07:03');
 
 /*Table structure for table `users` */
 
@@ -178,9 +144,9 @@ CREATE TABLE `users` (
 
 /*Data for the table `users` */
 
-insert  into `users`(`id`,`username`,`email`,`password`,`password_temp`,`code`,`active`,`tipo_user`,`remember_token`,`created_at`,`updated_at`) values (2,'Administrador','administrador@gmail.com','$2y$10$sqK0Mj3nimaU2MfRGnduSOF3eK643iFLg.dRd8ePw8mIcAyaPbP1m','','',1,1,'iypLNP296kZ4qjMe7LRYsGKSE0eoBwjBAtn9GXFbyDj1cbk3JxMhWI7m9P1V','2014-05-18','2014-05-26');
-insert  into `users`(`id`,`username`,`email`,`password`,`password_temp`,`code`,`active`,`tipo_user`,`remember_token`,`created_at`,`updated_at`) values (3,'Profesor','profesor@gmail.com','$2y$10$ZItwQRQtnpmPNNYoi5Z4BOJODK6Py7C98l.8/ybbwWoy6hVOBghVO','','',1,2,'JIYHilaoW0mMYbePdxsewvWRv8ebkgDZfOwbMA6w7MGMvnDtUGgYylRxYzC7','2014-05-18','2014-05-26');
-insert  into `users`(`id`,`username`,`email`,`password`,`password_temp`,`code`,`active`,`tipo_user`,`remember_token`,`created_at`,`updated_at`) values (4,'Estudiante','estudiante@gmail.com','$2y$10$ehe1i6iB8lhEl.UNrtfdn.5YgspxJVafm8BEaKgcW7VZtDZ9cpIBm','','',1,3,'3esMFufG7bYlFszPUScJCzFq91k8qNaYERn5a0knN3XVc1ZBKVWNucZyfsGs','2014-05-18','2014-05-26');
+insert  into `users`(`id`,`username`,`email`,`password`,`password_temp`,`code`,`active`,`tipo_user`,`remember_token`,`created_at`,`updated_at`) values (2,'Administrador','administrador@gmail.com','$2y$10$sqK0Mj3nimaU2MfRGnduSOF3eK643iFLg.dRd8ePw8mIcAyaPbP1m','','',1,1,'ANBrjWzuGHqhdT5BqX6Vti3QvLlUqzNMRwRoK55YeORj3KfLANtG4XuQl5ed','2014-05-18','2014-05-26');
+insert  into `users`(`id`,`username`,`email`,`password`,`password_temp`,`code`,`active`,`tipo_user`,`remember_token`,`created_at`,`updated_at`) values (3,'Profesor','profesor@gmail.com','$2y$10$ZItwQRQtnpmPNNYoi5Z4BOJODK6Py7C98l.8/ybbwWoy6hVOBghVO','','',1,2,'nZ6o5podTAOOcK7lurjWSJLmS6c7f8OCprOwsbqZpEKIZeIZozjer2h2dhws','2014-05-18','2014-05-26');
+insert  into `users`(`id`,`username`,`email`,`password`,`password_temp`,`code`,`active`,`tipo_user`,`remember_token`,`created_at`,`updated_at`) values (4,'Estudiante','estudiante@gmail.com','$2y$10$ehe1i6iB8lhEl.UNrtfdn.5YgspxJVafm8BEaKgcW7VZtDZ9cpIBm','','',1,3,'yLluV17KFONENSJk3S7z9sbmqarqmBqgvPP84YsZBGAKPsm4RSaaAJ7lsep3','2014-05-18','2014-05-26');
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
 /*!40014 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS */;

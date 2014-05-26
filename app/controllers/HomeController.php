@@ -5,6 +5,43 @@ class HomeController extends BaseController {
 	public function postMyResults() {
 	
 		$user = Input::get('user');
+		$course = Input::get('course');
+		$challenge = Input::get('challenge');
+		
+		$test = Test::where('test.course', '=', $course)->where('users.email', '=', $user)->where('test.challenge', '=', $challenge)
+							->join('question', 'test.id', '=', 'question.test')
+							->join('solution', 'solution.question', '=', 'question.id')
+							->join('users', 'users.id', '=', 'solution.user')
+							->select('users.email', 'solution.right')->get();
+		
+		$amount = 0;
+		$rights = 0;
+		$misses = 0;
+		
+		$win_rate = 0.7;
+		
+		foreach($test as $index => $value) {
+		
+			if($value->right == 1) {
+			
+				$rights ++;
+			} else {
+			
+				$misses ++;
+			}
+		
+			$amount ++;
+		}
+		
+		if($rights >= ($amount * $win_rate)) {
+		
+			$message = '¡Felicitaciones! Has aprobado la competencia con un total de: '.$rights.'/'.$amount;
+		} else {
+		
+			$message = 'Has reprobado la competencia con un total de: '.$rights.'/'.$amount.'. Has fallado en más de un 30% de la prueba.';
+		}
+		
+		return Redirect::to('/index.php')->with('message-alert', $message);
 	}
 
 	public function postSaveSolution() {
