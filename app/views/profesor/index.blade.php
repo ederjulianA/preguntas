@@ -37,8 +37,33 @@
 		<div class="row My-Row">
 				<div class = 'Questions-Container'>
 					<h1 class = 'My-Title'>
-						Pendientes de evaluación
+						Resultados
 					</h1>
+					<form action = 'myresults' method = 'POST'>
+						<label class = 'My-Label'>
+							Estudiante:
+						</label>
+						<input type = 'text' placeholder = 'Código del estudiante' class = 'Full-Input' required/>
+						<label class = 'My-Label'>
+							Curso:
+						</label>
+						<select name = 'course' id = 'course' class = 'Full-Input' required>
+							@foreach($courses as $course)
+								<option value="{{$course->id}}">{{$course->name}} </option>
+							@endforeach
+						</select>
+						<label class = 'My-Label'>
+							Competencia:
+						</label>
+						<select name = 'challenge' id = 'challenge' class = 'Full-Input' required>
+							@foreach($challenges as $challenge)
+								<option value="{{$challenge->id}}">{{$challenge->name}} </option>
+							@endforeach
+						</select>
+						<div class = 'Action-Container'>
+							<input name = 'user' type = 'submit' value = 'Buscar' class = 'btn btn btn-primary'/>
+						</div>
+					</form>
 				</div>
 		</div>
 	</div>

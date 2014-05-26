@@ -44,6 +44,16 @@ Route::post('/editarPerfil', array(
 		'uses' => 'UserController@postEditarPerfil'
 	));
 
+Route::post('savesolution', array(
+		'as' => 'savesolution',
+		'uses' => 'HomeController@postSaveSolution'
+	));
+	
+Route::post('myresults', array(
+	'as' => 'myresults',
+	'uses' => 'HomeController@postMyResults'
+));
+	
 Route::post('/asignarcurso', array(
 	'as' => 'asignarcurso',
 	'uses' => 'UserController@postAsignarCurso'

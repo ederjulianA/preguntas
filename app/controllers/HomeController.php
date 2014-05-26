@@ -2,6 +2,61 @@
 
 class HomeController extends BaseController {
 
+	public function postMyResults() {
+	
+		$user = Input::get('user');
+	}
+
+	public function postSaveSolution() {
+	
+		$user = Auth::user()->id;
+	
+		$amount = 0;
+		$rights = 0;
+		
+		# WTF?! Misses?
+		
+		$misses = 0;
+	
+		$win_rate = 0.7;
+	
+		foreach($_POST as $index => $answer) {
+			
+			$solution = new Solution();
+			$solution->user = $user;
+			$solution->question = $index;
+			$solution->answer = $answer;
+			
+			$right_answer = Answer::where('question', '=', $index)->where('right', '=', 1)->first();
+			
+			if($right_answer->id == $answer) {
+			
+				$solution->right = 1;
+				
+				$rights ++;
+			} else {
+			
+				$solution->right = 0;
+				
+				$misses ++;
+			}
+			
+			if($solution->save()) {}
+			
+			$amount ++;
+		}
+		
+		if($rights >= ($amount * $win_rate)) {
+		
+			$message = '¡Felicitaciones! Has aprobado la competencia con un total de: '.$rights.'/'.$amount;
+		} else {
+		
+			$message = 'Has reprobado la competencia con un total de: '.$rights.'/'.$amount.'. Has fallado en más de un 30% de la prueba.';
+		}
+		
+		return Redirect::to('/index.php')->with('message-alert', $message);
+	}
+
 	public function getIndex()
 	{
 		if(!Auth::check())
@@ -12,25 +67,49 @@ class HomeController extends BaseController {
 		if(Auth::user()->tipo_user == 2){
 			$users = User::where('tipo_user', '=', 3)->get();
 			$courses = Course::where('id', '>', 0)->get();
-
+			$challenges = Challenge::all();
 			
-
-			
-			return View::make('profesor.index')->with('users', $users)->with('courses', $courses);
+			return View::make('profesor.index')->with('users', $users)->with('courses', $courses)->with('challenges', $challenges);
 		}
 
 		if(Auth::user()->tipo_user == 3){
+			
 			$userCourses = Routine::where('user','=',Auth::user()->id)
-			->join('course','routine.course','=','course.id')
-
-
-			->select('course.id',
-					'course.name'
-
-				)
-			->get();
-
-			return View::make('estudiante.index')->with('mycourses',$userCourses);
+				->join('course','routine.course','=','course.id')
+				->select('course.id', 'course.name')
+				->get();
+			
+			$results = array();
+			
+			foreach($userCourses as $index => $course) {
+			
+				$tests = Test::where('test.course', '=', $course->id)->join('challenge', 'challenge.id', '=', 'test.challenge')->select("challenge.name", "challenge.id", "test.id AS test_id")->get();
+				
+				$my_tests = array();
+				
+				foreach($tests as $index => $test) {
+				
+					$my_tests[] = array($test->name, $test->id, $test->test_id);
+				}
+				
+				$results[$course->id] = array($my_tests);
+			}
+			
+			$questions = array();
+			$answers = array();
+			
+			if(isset($_GET['test']) && isset($_GET['challenge'])) {
+			
+				$questions = Question::where('test', '=', $_GET['test'])->get();
+				
+				foreach($questions as $key => $question) {
+				
+					$answers_result = Answer::where('question', '=', $question->id)->get();
+					$answers[$question->id] = $answers_result;
+				}
+			}
+			
+			return View::make('estudiante.index')->with('mycourses',$userCourses)->with('results', $results)->with('questions', $questions)->with('answers', $answers);
 		}
 		
 		$courses = Course::all();
@@ -40,6 +119,7 @@ class HomeController extends BaseController {
 		$user_id = Auth::user()->id;
 		$users = User::where('id','!=', $user_id)->get();
 		$roles = Roles::all();
+		
 		return View::make('index')->with('users',$users)->with('roles',$roles)->with('courses', $courses)->with('challenges', $challenges);
 	}
 
