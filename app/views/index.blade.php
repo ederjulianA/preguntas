@@ -5,7 +5,7 @@
 
 
 @section('content')
-	<h1>Bienvenido al administrador de preguntas y respuestas</h1>
+	<h1>Bienvenido al Evaluador de Competencias</h1>
 	<div class="container-admin">
 		<div class="col-md-12">
 			<h2>Usuarios</h2>

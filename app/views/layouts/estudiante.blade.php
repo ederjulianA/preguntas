@@ -30,7 +30,7 @@
 	        <span class="icon-bar"></span>
 	        <span class="icon-bar"></span>
 	      </button>
-	      <a class="navbar-brand" href="#">Preguntas y respuestas</a>
+	      <a class="navbar-brand" href="#">Evaluador de Competencias</a>
 	    </div>
 
 	    <!-- Collect the nav links, forms, and other content for toggling -->
@@ -38,18 +38,13 @@
 	      <ul class="nav navbar-nav">
 	        <li class="active"><a href="/">Inicio</a></li>
 	        
-	        <li class="dropdown">
+	        <!--<li class="dropdown">
 	          <a href="#" class="dropdown-toggle" data-toggle="dropdown">Menu <b class="caret"></b></a>
 	          <ul class="dropdown-menu">
 	            <li><a href="#">Accion</a></li>
-	            <li><a href="#">Otra accion</a></li>
-	            <li><a href="#">Algo mas aqui</a></li>
-	            <li class="divider"></li>
-	            <li><a href="#">Separated link</a></li>
-	            <li class="divider"></li>
-	            <li><a href="#">One more separated link</a></li>
+	         
 	          </ul>
-	        </li>
+	        </li>-->
 	      </ul>
 	     
 	      <ul class="nav navbar-nav navbar-right">
@@ -58,9 +53,7 @@
 	          <a href="#" class="dropdown-toggle" data-toggle="dropdown">{{Auth::user()->username}} <b class="caret"></b></a>
 	          <ul class="dropdown-menu">
 	            <li><a href="/perfil">Perfil</a></li>
-	            <li><a href="#">Another action</a></li>
-	            <li><a href="#">Something else here</a></li>
-	            <li class="divider"></li>
+	        
 	            <li><a href="/cerrar-sesion">Cerrar sesion</a></li>
 	          </ul>
 	        </li>
