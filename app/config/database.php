@@ -54,10 +54,10 @@ return array(
 
 		'mysql' => array(
 			'driver'    => 'mysql',
-			'host'      => 'localhost',
-			'database'  => 'preguntas',
-			'username'  => 'root',
-			'password'  => '',
+			'host'      => 'db4free.net:3306',
+			'database'  => 'ederalvarez',
+			'username'  => 'eder',
+			'password'  => 'demetria',
 			'charset'   => 'utf8',
 			'collation' => 'utf8_unicode_ci',
 			'prefix'    => '',
