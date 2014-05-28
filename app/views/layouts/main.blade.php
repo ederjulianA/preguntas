@@ -70,7 +70,7 @@
 	        <span class="icon-bar"></span>
 	        <span class="icon-bar"></span>
 	      </button>
-	      <a class="navbar-brand" href="#">Preguntas y respuestas</a>
+	      <a class="navbar-brand" href="#">Evaluador de Competencias</a>
 	    </div>
 
 

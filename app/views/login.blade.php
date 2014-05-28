@@ -1,7 +1,7 @@
 @extends('layouts.main')
 
 @section('titulo')
-Iniciar sesion
+Iniciar sesion |
 @stop
 
 @section('content')
